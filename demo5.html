@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>canvas</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas" style="border:1px solid #ccc; margin: 50px auto;display: block;" height="800" width="800">
+    	如果浏览器不支持canvas的话则会显示这行文字
+    </canvas>
+<script type="text/javascript">
+	window.onload= function(){
+		var canvas = document.getElementById("canvas");
+		var canvastext = canvas.getContext("2d");
+		// 第一块
+		canvastext.beginPath()
+		canvastext.moveTo(0,0)  // 起点
+		canvastext.lineTo(800,0)  // 终点
+		canvastext.lineTo(400,400)
+		canvastext.closePath();
+
+		canvastext.fillStyle = "#caff67"  // 填充颜色
+		canvastext.fill();
+
+		//第二块
+		canvastext.beginPath()
+		canvastext.moveTo(0,0)  // 起点
+		canvastext.lineTo(0,800)  // 终点
+		canvastext.lineTo(400,400)
+		canvastext.closePath();
+		canvastext.fillStyle = "#67becf"  // 填充颜色
+		canvastext.fill();
+
+		//第三块
+		canvastext.beginPath()
+		canvastext.moveTo(0,800)  // 起点
+		canvastext.lineTo(400,800)  // 终点
+		canvastext.lineTo(200,600)
+		canvastext.closePath();
+		canvastext.fillStyle = "#fa8ecc"  // 填充颜色
+		canvastext.fill();
+
+		//第四块
+		canvastext.beginPath()
+		canvastext.moveTo(200,600)  // 起点
+		canvastext.lineTo(400,800)  // 终点
+		canvastext.lineTo(600,600)
+		canvastext.lineTo(400,400)
+		canvastext.closePath();
+		canvastext.fillStyle = "#f9f51a"  // 填充颜色
+		canvastext.fill();
+
+		//第五块
+		canvastext.beginPath()
+		canvastext.moveTo(400,400)  // 起点
+		canvastext.lineTo(600,200)  // 终点
+		canvastext.lineTo(600,600)
+		canvastext.closePath();
+		canvastext.fillStyle = "#a594c0"  // 填充颜色
+		canvastext.fill();
+
+		//第六块
+		canvastext.beginPath()
+		canvastext.moveTo(800,0)  // 起点
+		canvastext.lineTo(600,200)  // 终点
+		canvastext.lineTo(600,600)
+		canvastext.lineTo(800,400)
+		canvastext.closePath();
+		canvastext.fillStyle = "#ef3d61"  // 填充颜色
+		canvastext.fill();
+
+		//第七块
+		canvastext.beginPath()
+		canvastext.moveTo(800,400)  // 起点
+		canvastext.lineTo(400,800)  // 终点
+		canvastext.lineTo(800,800)
+		canvastext.closePath();
+		canvastext.fillStyle = "#f6ca29"  // 填充颜色
+		canvastext.fill();
+	}
+</script>
+</body>
+</html>

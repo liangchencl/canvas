@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>demo1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<!-- <script type="text/javascript" src="js/easeljs-0.8.2.min.js"></script> -->
+</head>
+<body>
+<canvas id="canvas" height="500px" width="500px" style="background: #ccc;"></canvas>
+<canvas id="mycanvas" height="500px" width="500px" style="background: #ccc;"></canvas>
+
+<script type="text/javascript">
+window.onload=function(){
+	var canvas = document.getElementById('canvas');
+	var ctr = canvas.getContext('2d');
+	ctr.fillStyle='#ff0';
+	ctr.fillRect(10,10,50,50);  // 绘制填充矩形
+
+
+	var c=document.getElementById("mycanvas");
+	var ctx=c.getContext("2d");
+	var my_gradient=ctx.createLinearGradient(0,0,370,0);
+	my_gradient.addColorStop(0,"black");
+	my_gradient.addColorStop(0.5,"red");
+	my_gradient.addColorStop(1,"white");//渐变的填充颜色
+	ctx.fillStyle=my_gradient;
+	ctx.fillRect(20,20,450,150);
+
+
+}
+</script>
+</body>
+</html>

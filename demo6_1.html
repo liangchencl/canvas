@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>canvas</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas" style="border:1px solid #ccc; margin: 50px auto;display: block;" height="768" width="1024">
+    	如果浏览器不支持canvas的话则会显示这行文字
+    </canvas>
+    <script type="text/javascript">
+	window.onload= function(){
+		var canvas = document.getElementById("canvas");
+		var canvastext = canvas.getContext("2d");
+		canvastext.lineWidth = 5;
+		canvastext.strokeStyle = "#abc";
+		canvastext.fillStyle = "#abcdef";
+		// arc() 总共有6个参数  1 2 是圆心坐标   3 是半径 4 5 弧线的开始以及结束点  最后一个是可选参数 默认的是false顺时针，true的话就是逆时针
+		//canvastext.arc(300,300,200,0,1.5*Math.PI)
+
+		// 下面两个代码是一样的 只是第一个循环里面 屏蔽了canvastext.closePath(); 结束路径，如果当前路径没有封闭会自动封闭上
+		for (var i = 0; i < 10; i++) {
+			canvastext.beginPath();
+			canvastext.arc(100*i+50,60,40,0,2*Math.PI*(i+1)/10);
+			canvastext.closePath();
+			canvastext.stroke();
+
+			canvastext.fill();
+		};
+
+		for (var i = 0; i < 10; i++) {
+			canvastext.beginPath();
+			canvastext.arc(100*i+50,160,40,0,2*Math.PI*(i+1)/10);
+			// canvastext.closePath();
+			canvastext.stroke();
+		};
+
+	}
+</script>
+</body>
+</html>

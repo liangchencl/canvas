@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>多边形</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="1000"></canvas>
+	</body>
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var canvas = $("#canvas")[0];
+			var ctx = canvas.getContext("2d");
+			var dot=6;//多边形边数
+			var angle=0;//开始的角度
+			var r=150;//半径
+			var arr=[];
+			ctx.arc(500,500,r,0,Math.PI*2,true);
+			ctx.stroke();
+			for(var i=0;i<dot;i++){
+				spit=[500+r*Math.cos(Math.PI*2*(dot-i)/dot),500+r*Math.sin(Math.PI*2*(dot-i)/dot)];
+				arr.push(spit);
+			}
+			console.log(arr);
+			ctx.beginPath();
+			ctx.moveTo(arr[0][0],arr[0][1]);
+			for(var i=1;i<dot;i++){
+				ctx.lineTo(arr[i][0],arr[i][1]);
+			}
+			ctx.closePath();
+			ctx.stroke();
+			
+		})
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>canvas</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas" style="border:1px solid #ccc; margin: 50px auto;display: block;" height="768" width="1024">
+    	如果浏览器不支持canvas的话则会显示这行文字
+    </canvas>
+<script type="text/javascript">
+	window.onload= function(){
+		var canvas = document.getElementById("canvas");
+		var canvastext = canvas.getContext("2d");
+		canvastext.moveTo(100,100)  // 起点
+		canvastext.lineTo(700,700)  // 终点
+		canvastext.lineTo(100,700)
+		canvastext.lineTo(101,99)
+		canvastext.lineWidth = 5  // 线宽度
+
+		canvastext.fillStyle = "rgba(0,0,0,0.5)"  // 填充颜色
+		canvastext.fill()
+
+		canvastext.strokeStyle = "#abc" // 边框颜色
+		canvastext.stroke();
+	}
+</script>
+</body>
+</html>

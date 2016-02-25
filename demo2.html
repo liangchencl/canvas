@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>canvas</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+<style type="text/css">
+body {background: #ddd;}
+#canvas {margin:10px;padding:10px;background: #fff;border: 1px solid #aaa;}
+</style>
+
+</head>
+<body>
+    <canvas id="canvas" width="600" height="300">
+    	canvas
+    </canvas>
+<script type="text/javascript">
+$(function(){
+	var canvas1 = document.getElementById('canvas');  // 或者直接用原生的js获取
+	var canvas = $("#canvas")[0];   // $("#canvas")  这是jq元素 要转换成js元素在后面添加[0]  getContext  是原生的js
+	// console.log(canvas);
+	var canvastxt = canvas.getContext("2d");
+	canvastxt.fillStyle='#FF0000';
+	canvastxt.fillRect(0,0,80,100);
+
+})
+</script>
+</body>
+</html>

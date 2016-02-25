@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>canvas</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<h1>写字板</h1>
+    <canvas id="canvas" style="border:1px solid #ccc; margin: 50px auto;display: block;" height="768" width="1024">
+    	如果浏览器不支持canvas的话则会显示这行文字
+    </canvas>
+    <script type="text/javascript">
+	window.onload= function(){
+		var canvas = document.getElementById("canvas");
+		var canvastext = canvas.getContext("2d");
+		// canvastext.lineWidth = 5;
+		// canvastext.strokeStyle = "#abc";
+
+
+		canvas.onmousedown=function(even){
+			var x = even.pageX-this.offsetLeft;
+			var y = even.pageY-this.offsetTop;
+			canvastext.beginPath()
+			canvastext.lineWidth = 1
+			canvastext.strokeStyle = "#abc" // 边框颜色
+			canvastext.moveTo(x,y)
+
+			canvas.addEventListener("mousemove" , onmousemove , false);
+		}
+		canvas.onmouseup=function(even){
+			canvas.removeEventListener("mousemove" , onmousemove , false);
+		}
+
+		function onmousemove(even){
+			var x1 = even.pageX-this.offsetLeft;
+			var y1 = even.pageY-this.offsetTop;
+			canvastext.lineTo(x1,y1);
+			canvastext.stroke();
+		}
+	}
+	</script>
+</body>
+</html>
