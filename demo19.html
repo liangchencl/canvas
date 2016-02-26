@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>canvas</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<h1>drawImage</h1>
+    <canvas id="canvas" style="border:1px solid #ccc; margin: 50px auto;display: block;" height="768" width="1024">
+    	如果浏览器不支持canvas的话则会显示这行文字
+    </canvas>
+
+    <script type="text/javascript">
+	window.onload= function(){
+		var canvas = document.getElementById("canvas");
+		var canvastext = canvas.getContext("2d");
+		// 填充颜色
+		canvastext.fillStyle = "#f00";
+		// 边框颜色
+		canvastext.strokeStyle = "#000";
+		var x=0;
+		var y=0;
+		canvas.onmousemove = function(even){
+			x = even.pageX-this.offsetLeft;
+			y = even.pageY-this.offsetTop;
+			canvastext.clearRect(0, 0, canvas.width, canvas.height);
+			console.log(y);
+			canvastext.save();
+			canvastext.translate(x-50,y);
+			// canvastext.rotate(100)
+			canvastext.lineWidth = 2;
+			canvastext.beginPath();
+
+			canvastext.moveTo(-50, -25);
+			canvastext.lineTo(0, -25);
+			canvastext.lineTo(0, -50);
+			canvastext.lineTo(50, 0);
+			canvastext.lineTo(0, 50);
+			canvastext.lineTo(0, 25);
+			canvastext.lineTo(-50, 25);
+			canvastext.lineTo(-50, -25);
+
+			canvastext.closePath();
+
+			canvastext.fill();
+			canvastext.stroke();
+			canvastext.restore();
+		}
+	}
+	</script>
+</body>
+</html>
